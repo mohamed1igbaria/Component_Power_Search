@@ -57,12 +57,12 @@ streamlit run app.py
 ##### Future iterations of the project could include some of the following improvements:
 1. ###### Delete power item: Allow the agent to delete a power from the compatibility or inventory list.
 2. ###### Agents should be able to enter the quantity of the new inventory and the region where it is available.
-3. ###### Connect two powers as compatibles: Allow the agent to connect two powers as compatible with each other.
-4. ###### Allow the agent to add a new component to the components list, with its compatible powers, and inventory.
-5. ###### If the power or region is not already in the inventory list, the tool should prompt the agent to create a new entry.
-6. ###### Inventory Overview Dashboard: This dashboard would display an overview of inventory levels for each power and region, highlighting any low inventory levels that need attention.
-7. Component Compatibility Dashboard: This dashboard would display a visual representation of component compatibility between different powers, making it easier for agents to quickly identify compatible replacement options.
-8. Historical Data Dashboard: This dashboard would display historical data on call volume, inventory levels, and component usage over time. This could help managers make data-driven decisions and plan for future inventory needs.
+3. ###### Allow the agent to add a new component to the components list, with its compatible powers, and inventory.
+4. ###### Connect two powers as compatibles: Allow the agent to connect two powers as compatible with each other.
+6. ###### If the power or region is not already in the inventory list, the tool should prompt the agent to create a new entry.
+7. ###### Inventory Overview Dashboard: This dashboard would display an overview of inventory levels for each power and region, highlighting any low inventory levels that need attention.
+8. ###### Component Compatibility Dashboard: This dashboard would display a visual representation of component compatibility between different powers, making it easier for agents to quickly identify compatible replacement options.
+9. ###### Historical Data Dashboard: This dashboard would display historical data on call volume, inventory levels, and component usage over time. This could help managers make data-driven decisions and plan for future inventory needs.
 
 
 
