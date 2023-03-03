@@ -19,7 +19,7 @@ pip install pillow
 ### Running the App
 1. ###### Clone this repository to your local machine:
 ```
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/mohamed1igbaria/Component_Power_Search.git
 ```
 
 2. ###### In your terminal Navigate to the project directory by changing the 'path':
