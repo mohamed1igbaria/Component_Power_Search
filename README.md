@@ -2,9 +2,9 @@
 
 # Component Power Search
 
-#####Using the provided data this application enables you to identify the optimal power pairing for diverse components in various regions. 
-#####By exploring all feasible inventory alternatives, the app selects the option with the maximum quantity. 
-#####Additionally, the app visualizes the inventory power to identify low quantity, providing you with a comprehensive understanding of available power options.
+##### Using the provided data this application enables you to identify the optimal power pairing for diverse components in various regions. 
+##### By exploring all feasible inventory alternatives, the app selects the option with the maximum quantity. 
+##### Additionally, the app visualizes the inventory power to identify low quantity, providing you with a comprehensive understanding of available power options.
 
 - Note 1: The "Table 1" sheet in the data file (xlsx) contains an asymmetric table. To address this, I assumed that the table should be symmetric, I ran the function "extract_compatible_power" on the columns up to "Y1300". After that, I ran the same function by rows.
 
@@ -49,7 +49,7 @@ streamlit run pwr_search.py
 <img width="1518" alt="Screenshot 2023-03-04 at 20 34 50" src="https://user-images.githubusercontent.com/92742400/222927835-f9e86e88-1730-4968-a41f-12d92fe8057c.png">
 
 4. ###### To verify the Power token, click the "Confirm" button. If you accidentally confirm the token, you have 5 seconds to undo the action by clicking the "Cancel" button.
-<img width="1792" alt="Screenshot 2023-03-04 at 21 50 03" src="https://user-images.githubusercontent.com/92742400/222928466-6ecaff48-ce1f-4ee8-88ab-08da3b9051fa.png">
+<img width="1588" alt="Screenshot 2023-03-04 at 21 50 03" src="https://user-images.githubusercontent.com/92742400/222930205-cc9b1531-17da-4bf6-8a2d-53289b520e3b.png">
 <img width="1588" alt="Screenshot 2023-03-04 at 21 50 12" src="https://user-images.githubusercontent.com/92742400/222928701-8d4ac4ad-2774-4e02-9afe-c088d628dc5d.png">
 
 5. ###### If there are no compatible power quantity available, the agent can notify the relevant personnel about the issue by pressing "Report" button.
