@@ -16,7 +16,6 @@ compatibility_data = pd.read_excel(os.path.join(script_dir, 'Service BI Analyst 
 inventory_data = pd.read_excel(os.path.join(script_dir, 'Service BI Analyst - Home Assignment.xlsx'), sheet_name='Table 2', index_col=0)
 components_data = pd.read_excel(os.path.join(script_dir, 'Service BI Analyst - Home Assignment.xlsx'), sheet_name='Components', squeeze="columns")
 
-
 global power_keys   
 power_keys = {}     # Dictionary to save the power keys (A100, B150...)
 components = components_data.tolist()   # Extract components from components sheet
@@ -140,14 +139,15 @@ def compatible_power_chart(selected_component, selected_regions):
         st.plotly_chart(fig, use_container_width=True)
 
 
-
 def app():
     extract_compatible_power()
     st.set_page_config(page_title="My Streamlit App", page_icon=":guardsman:", layout="wide")
     
     # Out of inventory report
     def report_issue(reg):
-        st.success(f"No compatible Power reported successfully")
+        col1.success(f"Out of inventory reported successfully")
+        time.sleep(2)
+        st.experimental_rerun()
 
     # Confirm button and timer message 
     def confirm_issue(reg):
@@ -158,14 +158,19 @@ def app():
             cancel_pressed = True
         for i in range(5, 0, -1):
             if cancel_pressed:
-                break
-            timer_message = st.info(f"{max_power_keys[0]} from {reg} confirmed within {i}...")
+                st.experimental_rerun()
+            timer_message = st.info(f"{max_power_keys[0]} from {reg} will automatically be confirmed within {i}...")
             time.sleep(1)
             timer_message.empty()    
-        st.success(f"{max_power_keys[0]} from {reg} confirmed succefully")
-        return cancel_pressed
+        if not cancel_pressed:
+                col1.success(f"{max_power_keys[0]} from {region_selected} confirmed successfully")
+                col_cancel.empty()
+                time.sleep(2)
+                st.experimental_rerun()
+        else:
+            return cancel_pressed
 
-    # Logo img
+
     img = Image.open(os.path.join(script_dir,'solaredge.png'))
     # Divide screen by cols
     col1, empty_col, col2, empty_col = st.columns([6, 3, 7, 2])
@@ -192,20 +197,20 @@ def app():
                         max_power, max_power_keys = get_max_power_info(compatible_power, region_selected)
 
                         if max_power > 0:
-                            col_data, col_confirm, col_cancel,  = st.columns([3.5 ,1 , 1])
+                            col_data, col_confirm, col_cancel, empty_col  = st.columns([4, 2, 2, 1])
                             with col_data:
                                 st.markdown(f"<p style='color: #0BDA51; font-weight: standard; font-size:22px;'>{region_selected}: <span style='text-decoration: underline; font-weight: bold;'>{', '.join(max_power_keys)}", unsafe_allow_html=True)
-                                with col_confirm:
-                                    confirm_button = st.button(label=f"Confirm", key=f"Confirm{max_power}{region_selected}")
-                                    if confirm_button:
-                                        with col_data:
-                                            confirm_issue(region_selected)
+                            with col_confirm:
+                                confirm_button = st.button(label=f"Confirm", key=f"Confirm{max_power}{region_selected}")
+                            if confirm_button:
+                                confirm_issue(region_selected)
+                              
                         # Out of inventory                     
                         else:
-                            col_data, col_confirm, col_cancel,  = st.columns([3.5 ,1 , 1])
+                            col_data, col_confirm, col_cancel, empty_col = st.columns([4, 2, 2, 1])
                             with col_data:
                             # Display a message for no quantity
-                                st.markdown(f"<p style='color: red; font-weight: standard; font-size:22px;'>{region_selected}: No compatible Power", unsafe_allow_html=True)
+                                st.markdown(f"<p style='color: red; font-weight: standard; font-size:22px;'>{region_selected}: Out of inventory", unsafe_allow_html=True)
                             with col_confirm:
                                 report_button = st.button(label=f"Report", key=f"report_button")
                             with col_data:
