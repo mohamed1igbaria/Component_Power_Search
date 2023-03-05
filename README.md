@@ -10,6 +10,8 @@
 
 - Note 2: The "Confirm" and "Report" buttons are non-functional and are used only to display relevant messages.
 
+- ###### [View the app here](https://mohamedigb-component-power-search-pwr-search-sg3s79.streamlit.app "View the app here")
+
 -------------
 ## Getting Started
 ### Installation
