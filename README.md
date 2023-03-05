@@ -25,7 +25,7 @@ pip install -r requirements.txt
 git clone https://github.com/mohamed1igbaria/Component_Power_Search.git
 ```
 
-2. ###### In your terminal Navigate to the project directory by changing the <path>:
+2. ###### In your terminal Navigate to the project directory by changing the 'path':
 ```
 cd <path>/Component_Power_Search
 ```
